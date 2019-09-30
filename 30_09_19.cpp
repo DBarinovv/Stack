@@ -230,7 +230,7 @@ void Stack_Constructor (stack_t* this_)
 
     for (int i = 0; i < c_size + 1; i++)
     {
-        (this_ -> arr)[i] = c_poison;
+        (this_ -> arr)[i] = c_poison;            // А если не int?
     }
 
     ASSERT_OK
@@ -272,6 +272,8 @@ elem_t Stack_Pop (stack_t* this_)
 
 bool Stack_Empty (stack_t* this_)
 {
+    ASSERT_OK
+
     return ((this_ -> size) <= 0);
 }
 
@@ -295,6 +297,8 @@ elem_t Stack_Top (stack_t* this_)
 
 int Stack_Size (stack_t* this_)
 {
+    ASSERT_OK
+
     return (this_ -> size);
 }
 
@@ -302,6 +306,8 @@ int Stack_Size (stack_t* this_)
 
 bool Stack_Full (stack_t* this_)
 {
+    ASSERT_OK
+
     return ((this_ -> size) == c_size);
 }
 
@@ -309,6 +315,8 @@ bool Stack_Full (stack_t* this_)
 
 void Stack_Destruct (stack_t* this_)
 {
+    ASSERT_OK
+
     for (int i = 0; i <= c_size; i++)
     {
         (this_ -> arr)[i] = c_poison;
