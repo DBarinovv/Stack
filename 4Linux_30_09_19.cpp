@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mem.h>
-#include <assert.h>
 
 //=============================================================================
 
@@ -37,13 +36,6 @@ const int c_error_size = -10;
 const elem_t* c_error_null_ptr = (elem_t *)5;
 
 //=============================================================================
-
-#define PR_B(elem, color) \
-txSetConsoleAttr (color); \
-printf (#elem);           \
-txSetConsoleAttr (7);
-
-//-----------------------------------------------------------------------------
 
 #define DUMP(error) \
 printf ("\n");                                                                        \
@@ -133,34 +125,6 @@ int main ()
     stack_t stk_1 = {};
     STACK_CONSTRUCTOR(stk_1)
 
-//    txDump (&stk_1);
-
-//    printf ("%d\n", Stack_Pop (&stk_1));
-    Stack_Pop (&stk_1);
-    printf ("1: Stack_Top = [%d]\n", Stack_Top (&stk_1));
-
-    if (Stack_Empty (&stk_1))
-    {
-        printf ("DA?\n");
-    }
-    else
-    {
-        printf ("DA NY NET SHE NET\n");
-    }
-
-    Stack_Push (&stk_1, 5);
-
-    if (Stack_Empty (&stk_1))
-    {
-        printf ("DA, NET SHE NET!\n");
-    }
-    else
-    {
-        printf ("NET!\n");
-    }
-
-    printf ("2: Stack_Top = [%d]\n", Stack_Top (&stk_1));
-
     return 0;
 }
 
@@ -179,7 +143,7 @@ void Stack_Constructor (stack_t* this_)
 
     for (int i = 0; i < c_size + 1; i++)
     {
-        (this_ -> arr)[i] = c_poison;            // А если не int?
+        (this_ -> arr)[i] = c_poison;            // пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ int?
     }
 
     ASSERT_OK
